@@ -5,7 +5,7 @@ import g from 'glamorous';
 const IndexPage = ({ data }) => (
   <div>
     <g.H1 display={'inline-block'} borderBottom={'1px solid'}>
-      Amazing Pandas Eating Things
+      Blog list
     </g.H1>
     <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
     {data.allMarkdownRemark.edges.map(({ node }) => (

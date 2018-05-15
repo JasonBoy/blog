@@ -10,7 +10,12 @@ module.exports = {
         path: `${__dirname}/src/`,
       },
     },
-    `gatsby-transformer-remark`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [`gatsby-remark-copy-images`],
+      },
+    },
     `gatsby-plugin-glamor`,
     {
       resolve: `gatsby-plugin-typography`,
