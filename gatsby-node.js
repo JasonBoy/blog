@@ -11,14 +11,14 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
   const { createNodeField } = boundActionCreators;
   if (node.internal.type === `MarkdownRemark`) {
     const fileNode = getNode(node.parent);
-    console.log(`\n`, fileNode.relativePath);
+    // console.log(`\n`, fileNode.relativePath);
     const slug = createFilePath({ node, getNode, basePath: `posts` });
     createNodeField({
       node,
       name: `slug`,
       value: slug,
     });
-    console.log(slug);
+    // console.log(slug);
   }
 };
 
@@ -38,7 +38,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         }
       }
     `).then(result => {
-      console.log(JSON.stringify(result, null, 4));
+      // console.log(JSON.stringify(result, null, 4));
       result.data.allMarkdownRemark.edges.forEach(({ node }) => {
         createPage({
           path: node.fields.slug,
