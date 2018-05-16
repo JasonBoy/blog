@@ -7,6 +7,7 @@
     "gatsby": "^1.9.247",
     "gatsby-link": "^1.6.40",
     "gatsby-plugin-glamor": "^1.6.13",
+    "gatsby-plugin-nprogress": "^1.0.14",
     "gatsby-plugin-react-helmet": "^2.0.10",
     "gatsby-plugin-typography": "^1.7.18",
     "gatsby-remark-copy-images": "^0.2.1",

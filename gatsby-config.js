@@ -28,6 +28,7 @@ module.exports = {
         pathToConfigModule: `src/utils/typography.js`,
       },
     },
-    'gatsby-plugin-react-helmet',
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-nprogress`,
   ],
 };
