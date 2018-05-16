@@ -9,6 +9,10 @@
 git clone git@github.com:JasonBoy/blog.git
 # go to repo root
 cd blog
+# install deps
+npm install
+# or with yarn
+yarn
 # start dev mode
 npm run dev
 
