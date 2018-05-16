@@ -9,7 +9,9 @@ The answer is that we can use [nvm](https://github.com/creationix/nvm) to instal
 
 Go to the [nvm github page](https://github.com/creationix/nvm) , use the script to install nvm:
 
-`curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash`
+```bash
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+```
   
 or other alternative scripts.  
 Then you can `nvm --version` to see the version:
@@ -35,9 +37,11 @@ You can also run node in different node version directly from the single line co
 
 ### How it works
 
-After you install nvm, there will be a `.nvm` dir in your home dir, all the versions will be install inside this, which will be pointed to `node` according the version you are currently using:  
-`which node`:  
-`~/.nvm/versions/node/v4.4.0/bin/node`,   
+After you install nvm, there will be a `.nvm` dir in your home dir, all the versions will be install inside this, which will be pointed to `node` according the version you are currently using:
+```bash
+which node
+# ~/.nvm/versions/node/v4.4.0/bin/node
+```  
 the current node will be added to your `PATH` env before the default one `/usr/local/bin/node`:  
 `echo ${PATH}`  
 **_/Users/me/.nvm/versions/node/v4.4.0/bin:/usr/local/bin_**,   

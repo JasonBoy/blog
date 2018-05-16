@@ -10,9 +10,11 @@
     "gatsby-plugin-react-helmet": "^2.0.10",
     "gatsby-plugin-typography": "^1.7.18",
     "gatsby-remark-copy-images": "^0.2.1",
+    "gatsby-remark-prismjs": "^2.0.2",
     "gatsby-source-filesystem": "^1.5.35",
     "gatsby-transformer-remark": "^1.7.41",
     "glamorous": "^4.13.0",
+    "prismjs": "^1.14.0",
     "react-helmet": "^5.2.0"
   },
   "keywords": ["gatsby", "blog"],

@@ -11,12 +11,12 @@ The first thing you need to do is to gather all the image urls needed for preloa
 Filter all the images you need, and you are about to go.
 
 It's easy to use js to load a single image using `Image` object:
-```
+```javascript
 const img = new Image();
 img.src = '/image1.png';
 ```
 You can also add event handler to check if the image is loaded successfully:
-```
+```javascript
 const img = new Image();
 img.onload = function () {console.log('ok')};
 img.onerror = function () {console.log('error')}
@@ -24,14 +24,15 @@ img.onerror = function () {console.log('error')}
 img.src = '/image1.png';
 ```
 After loading the image, you may probably need to add the element to DOM to ensure the cache:
-```
+```javascript
 const body = document.querySelector('body');
 body.appendChild(img);
 ```
 Even if you are using the image in your css file, the browser will still use the cached one without loading again for css style.
-==**Make sure to add Cache-Control for your assets on production, especially on mobile device**==
 
-> Using prefetch-image
+*Make sure to add Cache-Control for your assets on production, especially on mobile device*
+
+### Using prefetch-image
 
 It's annoying to load all the images manually while you have lots of them to preload, so I made a simple tool to help you prefetch your image assets easily using promise, you only need to provide all the image urls, and you are done, all the other work will be done automatically by [prefetch-image](https://github.com/JasonBoy/prefetch-image).
 First install the module:
@@ -40,7 +41,7 @@ or using yarn:
 `yarn add prefetch-image`
 
 And in your js:
-```
+```javascript
 //commonjs
 const prefetchImages = require('prefetch-image');
 //ES6

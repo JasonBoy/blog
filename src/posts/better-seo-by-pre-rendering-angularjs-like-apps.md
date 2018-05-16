@@ -23,11 +23,11 @@ To have full control over the pre-rendering process, we should run the server lo
 Now that we know how the prerender works, we can start to prerender our angularjs pages:P.
 
 First of all, we may need to install prerender: 
-```
-//clone the code to your local
+```bash
+# clone the code to your local
 $ git clone https://github.com/prerender/prerender.git
 $ cd prerender
-//you may need to install nodejs first
+# you may need to install nodejs first
 $ npm install
 $ node server.js
 ```

@@ -19,13 +19,13 @@ After everything is ready, we can start the process to obtain the certificate.
 ### Install certbot-auto
 
 The easiest way to obtain the Let's Encrypt certificate is to install the Let's Encrypt client [certbot-auto](https://github.com/certbot/certbot):
-```
-$ cd /usr/local/sbin
-$ sudo wget https://dl.eff.org/certbot-auto
+```bash
+cd /usr/local/sbin
+sudo wget https://dl.eff.org/certbot-auto
 ```
 Now you should have `certbot-auto` on `/usr/local/sbin`, before you can use that, you need to make it executable:
-```
-$ sudo chmod a+x /usr/local/sbin/certbot-auto
+```bash
+sudo chmod a+x /usr/local/sbin/certbot-auto
 ```
 Now you are ready to obtain a certificate.
 
@@ -33,9 +33,9 @@ Now you are ready to obtain a certificate.
 
 The easiest way to pass the validation from Let's Encrypt is to configure your nginx to use Webroot Plugin, which will place a special file in `/.well-known` in your document root dir, which will be requested by the `certbot-auto`.
 First of all, install nginx:
-```
-$ sudo apt-get update
-$ sudo apt-get install nginx
+```bash
+sudo apt-get update
+sudo apt-get install nginx
 ```
 
 And create a new site config file in `/etc/nginx/sites-available` to enable `/.well-known` access, we call it `ghost` since it's for ghost node app config: 
@@ -50,18 +50,24 @@ server {
         }
 }
 ```
-and in the `/etc/nginx/sites-enabled`, create a link to the file above to enable it on nginx server:
-`ln -s ghost /etc/nginx/sites-available/ghost`,  
+and in the `/etc/nginx/sites-enabled`, create a link to the file above to enable it on nginx server:  
+```bash
+ln -s ghost /etc/nginx/sites-available/ghost
+```  
 Of course you can just config everything in `/etc/nginx/nginx.conf` directly, but for better organization, we should put site specific config in a separate file.  
 You can type  
-`$ sudo nginx -t`  
+```bash
+sudo nginx -t
+```  
 to check if your config file is valid before restart nginx service, if everything is ok, you can now restart the nginx server:  
-`$ sudo systemctl reload nginx`
+```bash
+sudo systemctl reload nginx
+```
 
 Now with nginx configured, we can use `certbot-auto` to finally obtain a certificate:
-```
-$ cd /usr/local/sbin
-$ certbot-auto certonly -a webroot --webroot-path=/var/www/html -d www.yourdomain.com
+```bash
+cd /usr/local/sbin
+certbot-auto certonly -a webroot --webroot-path=/var/www/html -d www.yourdomain.com
 ```
 Enter your email and agree the Terms at the prompt.  
 If everything is ok, you can see the IMPORTANT NOTES on the output like this: 
@@ -103,8 +109,10 @@ server {
 }
 ```
 And check the config file and restart nginx:
-`$ sudo nginx -t`  
-`$ sudo systemctl reload nginx`  
+```bash
+sudo nginx -t
+sudo systemctl reload nginx
+```
 
 Now go to `https://www.yourdomain.com` to see if https is enabled successfully like below:  
 ![https icon](../assets/images/2017/02/Screen-Shot-2017-02-28-at-2.48.33-PM.png)
@@ -118,11 +126,14 @@ Change the `url` property to `https://www.yourdomain.com`.
 
 Let’s Encrypt certificates are only valid for 90 days, also the certbot-auto won't auto renew your certficate automatically, so what you can do is to set up a schedule script to renew your certificate like every week to prevent expiration.  
 To renew your certificate manually:
-`$ certbot-auto renew`  
+```bash
+certbot-auto renew
+```  
 
 But we can use `crontab` set up a schedule to run the renew process and restart nginx automatically:
-`$ sudo crontab -e` and type like this:  
-```
+```bash
+sudo crontab -e
+# and type like this:
 30 2 * * 1 /usr/local/sbin/certbot-auto renew >> /var/log/le-renew.log
 35 2 * * 1 sudo systemctl reload nginx
 ```

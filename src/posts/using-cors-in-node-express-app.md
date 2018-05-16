@@ -31,12 +31,12 @@ After understand the basic of the CORS request, we can add this in our real expr
 ### Use CORS in Node Express App
 
 * First you may want to add a middleware to handle all the preflight requests: 
-```
+```javascript
 app.use(function(req, res, next) {
-  if('OPTIONS' === req.method) {
-    res.set('Access-Control-Allow-Origin', req.get('Origin'));
-    res.set('Access-Control-Allow-Headers', 'Accept, Content-Type');
-    ...//add more if necessary
+  if ("OPTIONS" === req.method) {
+    res.set("Access-Control-Allow-Origin", req.get("Origin"));
+    res.set("Access-Control-Allow-Headers", "Accept, Content-Type");
+    //...add more if necessary
     res.end();
     return;
   }
@@ -44,10 +44,10 @@ app.use(function(req, res, next) {
 });
 ```
 * Actual request handler:
-```
-app.use(function(req, res, next){
+```javascript
+app.use(function(req, res, next) {
   //'Access-Control-Allow-Origin' is still required in actual response
-  res.set('Access-Control-Allow-Origin', req.get('Origin'));
+  res.set("Access-Control-Allow-Origin", req.get("Origin"));
   res.json({});
 });
 ```

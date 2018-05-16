@@ -33,7 +33,7 @@ The default template engine used by the project is [Jade](http://jade-lang.com/)
 2. `npm install` to install the swig lib  
 3. go to `app.js` to change the html engine  
 
-```
+```javascript
 var swig = require('swig');
 var app = require('express')();
 //html in views dir
@@ -67,7 +67,7 @@ Currently we use [Gulp](http://gulpjs.com/) to build our static assets(there are
 ```
 3. Then create `gulpfile.js` in your project root dir, and add some tasks there.
 For example, we want to add a task to compile the `less` files into css, we can do as follows:
-```
+```javascript
 //...require any libs needed below
 gulp.task('css', function () {
   var compiledPath = 'public/build/css';
@@ -83,7 +83,7 @@ gulp.task('css', function () {
 ```
 Then we can run `gulp css` in command line to compile all the less files in `/public/less` to css file, and minify that if we are in production mode.
 Another example to uglify js files:
-```
+```javascript
 gulp.task("js", function () {
   return gulp.src(compileSrc)
     .pipe(uglify())

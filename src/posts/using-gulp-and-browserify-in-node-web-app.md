@@ -12,26 +12,28 @@ Here I will talk about using browserify with gulp together to build our assets q
 and related modules to you project's `package.json`'s `devDependencies` section. 
 
 
-```
-    "browserify": "^12.0.1",
-    "glob": "^6.0.1",
-    "gulp": "~3.9.0",
-    "gulp-concat": "^2.5.2",
-    "gulp-rename": "~1.2.2",
-    "gulp-uglify": "^1.2.0",
-    "gulp-util": "^3.0.3",
-    "vinyl-buffer": "^1.0.0",
-    "vinyl-paths": "^1.0.0",
-    "vinyl-source-stream": "^1.1.0",
+```json
+{
+  "browserify": "^12.0.1",
+  "glob": "^6.0.1",
+  "gulp": "~3.9.0",
+  "gulp-concat": "^2.5.2",
+  "gulp-rename": "~1.2.2",
+  "gulp-uglify": "^1.2.0",
+  "gulp-util": "^3.0.3",
+  "vinyl-buffer": "^1.0.0",
+  "vinyl-paths": "^1.0.0",
+  "vinyl-source-stream": "^1.1.0"
+}
 ```
   
 ### Create the gulp task
 
 Now we can write a simple js task to bundle your js files with browserify. 
-```
+```javascript
 var gulp = require('gulp');
 var b = require('browserify');
-...  
+//...  
 gulp.task('js', function(){
   b({
     entries: './js/app.js',
@@ -45,7 +47,7 @@ That's a simple task to bundle your js into a single file, the `debug` property 
 But what about if I want to bundle couple of entries at once, like I have couple of Angular controllers in separate files, and want to bundle them into a single one, well you can use `glob` module to get all the entries and pass it to the `entries` property as an array.
 And how about if I want to separate the libs into another file, which will rebundle your own js files much faster? You can use the `external` method to do that, and `require` these libs in your another bundle.
 OK, lets put all these together:
-```
+```javascript
 gulp.task('js', function(){
   glob('./js/*.js', function(err, files){
     b({
@@ -86,7 +88,7 @@ Now we have a fully featured task to bundle our js files for production:
 For dev env, you can also watch your js files to rebundle automatically.
 Install `watchify` module, 
 `npm isntall watchify --save`  
-```
+```javascript
 gulp.task('watch', function(){
   b({
     entries: 'app.js'

@@ -15,7 +15,7 @@ First of all, we need to install the `request` module:
 ### Pipe the original request  
 
 The most common case is that we only need to dispatch the original request from browser to the destination without any modification with the original request, which could be easily solved with the `pipe` method.  
-```
+```javascript
 var request = require('request');
 router.get('/api/user', function(req, res){
   req.pipe(request({
@@ -32,7 +32,7 @@ __Important:__ _you should pipe the request without using any middleware to pars
 
 This is the simplest way to dispatch the original request to your api server, which will also pipe the data back to the browser without any modification.  
 If you want to change the response before sending back to the browser, you can use the callback or the `response` event.
-```
+```javascript
 request(options, function(err, httpResponse, body){
   if(err) {
     console.error(err);
@@ -46,7 +46,7 @@ __*TIP:*__ You can wrap this into a Promise to make it look better, the `bluebir
 
 Another case is that we need to modify the request data, or add other data or headers before sending to the destination, in this case, we may not use the `pipe` anymore, because we need to parse the body first to read the data, and modify the data, which will change the original request object, the solution is that we may need to create the request options and final data manually.
 
-```
+```javascript
 var request = require('request');
 var bodyParser = require('body-parser');
 //parse the body before goto the final handler

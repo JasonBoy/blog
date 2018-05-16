@@ -20,7 +20,7 @@ There are lots of starter kit or boilerplate projects out there, most of which a
 The framework's server side is built on [koajs](https://github.com/koajs/koa), a next generation web framework for node.js, created by the forks also invented the famous [expressjs](https://expressjs.com/) MVC framework. Koa supports the latest async/await syntax so that you can have a better experience writing async code in a sync coding style, which is awesome😎. Also it has a better and more semantic middleware mechanism, with which you can add lots of small middlewares focusing on single functionality to make your application richer and more robust, instead of pre-bundling lots of middlewares ahead, which makes koa much more ligthweight. 
 
 Every modern web application may have an API layer which may write in other languages(e.g java, go...), which may also served on a different api endpoint, in which case we may need to configure a reverse proxy service to proxy our fetch requests to the api endpoint to workaround the CORS issue restricted by the browser. That could make your dev env setup process much more complex and time wasting, so with the help of [koa-web-kit](https://github.com/JasonBoy/koa-web-kit), a pre-bundled API Proxy may save you a lot of time by setting up your dev environment, you just need to configure a custom url prefix mapping to the real api endpoint, and it's done, all the requests in your browser will be delegated to the real api endpoint, what makes it even better is that you can not only configure just one endpoint(since your apis may live on different endpoints), but as many as you like, like the configuration below: 
-```
+```javascript
 config = {
   //...other configs
   "API_ENDPOINTS": {
@@ -34,7 +34,7 @@ Simple right? You don't need to setup another nginx server on your local develop
 > *As in production env, it may be better to use a reverse proxy to proxy the apis directly to backend, instead of sending all requests to node, which may blow up your node server.*
 
 And also a log layer is necessary for every server side application, `koa-web-kit` also provides a default simple logger utility, powered by the amazing async logging library [winston](https://github.com/winstonjs/winston), e.g:
-```
+```javascript
 const logger = require('./mw/logger');
 logger.info(msg);
 logger.warn(msg);
@@ -77,8 +77,9 @@ for more options and examples, check out [koa-web-kit#Deploy](https://github.com
 
 Even though `koa-web-kit` is a full stack framework, you can still generate a static site if you don't need any server side stuff without losing all the dev experiences koa-web-kit offers.  
 When you want to generate a static site, there is one more thing you may need to put into consideration, the `prefix path` and the `trailing slash` confusion, which is also documented in the famous static site generator [Gatsby](https://www.gatsbyjs.org/docs/path-prefix/). The thing is that when you want to deploy the static site to some 3rd servers, like github pages, or the famous static site service provider like [netlify](https://www.netlify.com), in which cases, your app may be served on a sub directory url(e.g https://user.github.io/app1/), here the `prefix` for your site is `/app1/`, everything should be stay under the sub path `/app1/`, with koa-web-kit, it's also very easy to configure that, for example, just in your `config.json` file:
-```
-{
+```javascript
+const config = {
+  //...
   //your cdn domain for your static assets if you have
   "STATIC_ENDPOINT": "http://cdn.com",
   //additional prefix for your cdn domain
@@ -89,10 +90,11 @@ When you want to generate a static site, there is one more thing you may need to
   //if "PREFIX_TRAILING_SLASH" is true,
   //the final "env.prefix" value(details below) will be "/app1/"
   "APP_PREFIX": "/app1",
+  //...
 }
 ```
 So how do we access this in a programming level(like in your components), simple, just import that in your js:
-```
+```javascript
 //full path: "./src/modules/env.js"
 import env from 'modules/env';
 
@@ -100,7 +102,9 @@ import env from 'modules/env';
 console.log(env.prefix); 
 // -> "/app1/"
 console.log(env.appPrefix); 
-// concat your static url if it does not need a webpack loader
+```
+```html
+<!--concat your static url if it does not need a webpack loader-->
 <img src={`${env.prefix}static/imgs/no-loader.png`}>
 ```
 The webpack loader will also be prefix aware, so in your source code, just import your assets normally, or use relative bg path in your scss files.

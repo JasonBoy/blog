@@ -1,5 +1,12 @@
 import React from 'react';
-import { Article } from 'glamorous';
+import glamorous from 'glamorous';
+
+const Article = glamorous.article({
+  '& :not(pre) > code[class*="language-"]': {
+    paddingLeft: 7,
+    paddingRight: 7,
+  },
+});
 
 export default ({ data }) => {
   const post = data.markdownRemark;

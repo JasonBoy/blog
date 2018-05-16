@@ -11,12 +11,12 @@ The source code of Co is simple and elegant with only about 200 lines of code, b
 
 *Code is based on on `Co@4.6.0`. At the end of the article, I will show a demo which uses all the `yield`ables that co supports*   
 
-```
+```javascript
 var slice = Array.prototype.slice;
 ```
 This line is simple, which is used to convert the `arguments` to array and pass the needed parameters to `fn.apply` call.
 
-```
+```javascript
 co.wrap = function (fn) {
   createPromise.__generatorFunction__ = fn;
   return createPromise;
@@ -29,13 +29,13 @@ co.wrap = function (fn) {
 The comments in the source code shows that it wraps the generator function into a function to prevent unnecessary closure with multiple `co()` calls, the `wrap` fun is also used internally in [Koa](https://github.com/koajs/koa), Inside the `createPromise` fn, it calls the co fn while also passing the consistent `this`, and the called generator function.
 
 In the main `function co(gen){}` fun:
-```
+```javascript
 var ctx = this;
 var args = slice.call(arguments, 1);
 ```
 First reference `this` to ctx, and extract the arguments except the first generator parameter, and pass them to `gen.apply()` .
 Co wraps everything into a Promise, and will return the Promise.
-```
+```javascript
 return new Promise(function(resolve, reject) {
     if (typeof gen === 'function') gen = gen.apply(ctx, args);
     if (!gen || typeof gen.next !== 'function') return resolve(gen);
@@ -47,7 +47,7 @@ return new Promise(function(resolve, reject) {
 Inside the promise executor, it checks if `gen` is a function type, if yes, just run the function, and set the result to gen again, which will be a generator iterator if it was a `GeneratorFunction`, and then we can call `next` to start the code execution. And if the result is not a Iterator, just resolve the promise with the result of `gen` itself.
 Run `onFulfilled()` to start the recursive execution of the nested yieldables.
 
-```
+```javascript
 function onFulfilled(res) {
       var ret;
       try {
@@ -62,7 +62,7 @@ function onFulfilled(res) {
 With `gen.next(res)` to pass `res` from the previous Promise result to previously paused yield expression result, and also get the next yield expression result to set to `ret`, if exception occurs, reject the current promise. Then call `next(ret)` to check the yielded result and create Promise based on the result object type to continue the next nested recursive flow.
 `onRejected` function is almost the same as above.  
 The last function inside the main `co` is `next()`, which is called as many times as needed to go through the whole execution flow, until it reaches the end.
-```
+```javascript
 function next(ret) {
       if (ret.done) return resolve(ret.value);
       var value = toPromise.call(ctx, ret.value);
@@ -84,7 +84,7 @@ All supported `yield`ables are:
 ### Demo
 
 Let's go through a demo to have a better understanding of the co control flow:
-```
+```javascript
 testCo();
 //control flow test
 function testCo() {
