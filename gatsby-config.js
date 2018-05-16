@@ -1,4 +1,4 @@
-module.exports = {
+const config = {
   siteMetadata: {
     title: 'May the Code be With You',
   },
@@ -50,3 +50,30 @@ module.exports = {
     `gatsby-plugin-nprogress`,
   ],
 };
+
+if (process.env.NODE_ENV === 'production') {
+  config.plugins = config.plugins.concat([
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: 'UA-99306561-1',
+        // Puts tracking script in the head instead of the body
+        head: false,
+        // Setting this parameter is optional
+        anonymize: true,
+        // Setting this parameter is also optional
+        respectDNT: true,
+        // Avoids sending pageview hits from custom paths
+        // exclude: ["/preview/**", "/do-not-track/me/too/"],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-gosquared`,
+      options: {
+        token: 'GSN-123456-A',
+      },
+    },
+  ]);
+}
+
+module.exports = config;
