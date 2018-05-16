@@ -1,10 +1,22 @@
-# blog
+# May the Code be With You
 
-> Migrating [My Blog(Ghost based)](https://blog.lovemily.me) here...
+> WIP...
+
+## Development
+
+```bash
+# clone the repo
+git clone git@github.com:JasonBoy/blog.git
+# go to repo root
+cd blog
+# start dev mode
+npm run dev
+
+```
 
 For an overview of the project structure please refer to the [Gatsby documentation - Building with Components](https://www.gatsbyjs.org/docs/building-with-components/).
 
 
 ## Deploy
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/JasonBoy/blog)
