@@ -5,6 +5,8 @@
 ## Development
 
 ```bash
+# install gatsby-cli
+npm install -g gatsby-cli
 # clone the repo
 git clone git@github.com:JasonBoy/blog.git
 # go to repo root
