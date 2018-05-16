@@ -11,9 +11,10 @@ We have some solutions to solve this problem:
 * Using proxy in server side, like nginx, to delegate the requests to api.a.com, but we can only use a.com in browser side, which is still not so ideal, 
 * To solve the issues above, we can use [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS) as a better solution.
 
-> **How it works**  
+### How it works  
 
 Below is the basic cors flow:
+
 ![](../assets/images/2016/03/cors_flow.png)
 
 The browser will check if the request is a cross origin ajax request, if yes, it will send a preflight request as  http method `OPTIONS` to server to get permissions, if the preflight response match the cross origin policies, then the browser will send the actual request to get real data.
@@ -27,7 +28,7 @@ There are couple headers you should notice in both request and response in prefl
 
 After understand the basic of the CORS request, we can add this in our real express server.
 
-> **Use CORS in Node Express App**
+### Use CORS in Node Express App
 
 * First you may want to add a middleware to handle all the preflight requests: 
 ```
@@ -53,7 +54,7 @@ app.use(function(req, res, next){
 
 Now you can access the apis from other domain without any restrictions, cheers :)
 
-> **References**
+### References
 
-[MDN CORS reference](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS)  
-[HTML5ROCKS tutorial](http://www.html5rocks.com/en/tutorials/cors/)
+- [MDN CORS reference](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS)  
+- [HTML5ROCKS tutorial](http://www.html5rocks.com/en/tutorials/cors/)

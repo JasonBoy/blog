@@ -154,7 +154,7 @@ So let's do a little more work to make your system less dangerous with sandbox e
 
 And that should fix the issue when running puppeteer in a linux system, cheers:).
 
-> Conclusion
+### Conclusion
 
 puppeteer has been released for only couple of weeks by the time this article was posted, but with the power of the most popular browser in the world, we can use all the latest features provided by Chrome to test our modern SPA applications, generate static html, crawling, and much more:)
 Happy modern headless life with [puppeteer](https://github.com/GoogleChrome/puppeteer)😎

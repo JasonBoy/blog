@@ -7,7 +7,7 @@ Since the release of ES6(ES2015), which introduced a new feature called [Generat
 Generator is like a normal function, after you call the function, it returns an Iterator, which then you can call `next` method to control the code running all by yourself. Even though we have the full control with generator, which is really cool, but sometimes it is also a little bit overhead, when you have lots of generators nested together, which makes you stuck in the nested hell:(. Fortunately we already had a tool called [Co](https://github.com/tj/co) to help us run the whole generator(s) flow automatically out of the box.
 The source code of Co is simple and elegant with only about 200 lines of code, below we will go through the main function code line by line to show you how the small tool makes your life easier.
 
-> Code
+### Code
 
 *Code is based on on `Co@4.6.0`. At the end of the article, I will show a demo which uses all the `yield`ables that co supports*   
 
@@ -81,7 +81,7 @@ All supported `yield`ables are:
 * Array, concurrently run multi async tasks
 * Object, same as above, but with a key for every task
 
-> Demo
+### Demo
 
 Let's go through a demo to have a better understanding of the co control flow:
 ```
@@ -151,7 +151,7 @@ final result: all done
 ```
 You can go through the flow to understand the whole idea of Co.
 
-> Conclusion
+### Conclusion
 
 Co is a nice solution for simpler generator control flow, we can yield any supported async tasks in our business logic, and leave everything else to Co to finish all the tasks with the respect of our sync and async sequence needs.
 Feel free to try it out, your life will become easier :).

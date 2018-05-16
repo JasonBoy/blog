@@ -11,12 +11,12 @@ So the first step, also the most important step is to enable https on your serve
 
 Here I will show you how to enable https on a nodejs webapp(a Ghost blog here) behind the nginx on Ubuntu 16.4, actually we will config nginx mostly to serve the https content for the nodejs app.
 
-> Prerequisites
+### Prerequisites
 
 Before we can use https, we need to do some preparation, first of all you may need to install nginx on your system, and nodejs/ghost(for the example in this article). Also you need to have access to your domain management, you should create an `A Record` that points to the public IP address of your server, Let's Encrypt will send validation to the server on which the certificate will issue. For example, if you want to issue cert on `www.yourdomain.com`, you could add your server IP to an `A Record` for this domain.
 After everything is ready, we can start the process to obtain the certificate.
 
-> Install certbot-auto
+### Install certbot-auto
 
 The easiest way to obtain the Let's Encrypt certificate is to install the Let's Encrypt client [certbot-auto](https://github.com/certbot/certbot):
 ```
@@ -29,7 +29,7 @@ $ sudo chmod a+x /usr/local/sbin/certbot-auto
 ```
 Now you are ready to obtain a certificate.
 
-> Obtain a Certificate
+### Obtain a Certificate
 
 The easiest way to pass the validation from Let's Encrypt is to configure your nginx to use Webroot Plugin, which will place a special file in `/.well-known` in your document root dir, which will be requested by the `certbot-auto`.
 First of all, install nginx:
@@ -76,7 +76,7 @@ There are couple pem files generated inside `/etc/letsencrypt/live/www.yourdomai
 
 ![chain files](../assets/images/2017/02/Screen-Shot-2017-02-28-at-4.54.20-PM.png)
 
-> Config TLS/SSL on nginx
+### Config TLS/SSL on nginx
 
 After you got the SSL certificate, you can finally configure that to nginx, the full configuration in `ghost` config file will be: 
 ```
@@ -114,7 +114,7 @@ If you want to enable https on full ghost website, aka: redirect all `http` requ
 
 Change the `url` property to `https://www.yourdomain.com`.
 
-> Auto Renewal your Certificate
+### Auto Renewal your Certificate
 
 Let’s Encrypt certificates are only valid for 90 days, also the certbot-auto won't auto renew your certficate automatically, so what you can do is to set up a schedule script to renew your certificate like every week to prevent expiration.  
 To renew your certificate manually:
@@ -128,15 +128,15 @@ But we can use `crontab` set up a schedule to run the renew process and restart 
 ```
 The job above means that the `certbot-auto renew` will be executed every Monday at 2:30AM, and reload nginx at 2:35AM. Now you don't need to worry about renew your cert manually, which is really a life saver :).
 
-> Conclusion
+### Conclusion
 
 Improve your website security with HTTPS is now much more important than before, Let's Encrypt provides us an easy way to enable https on our own server for free, you should really try this out by yourself to make your website more attractive to your users.
 
-> References
+### References
 
-[How-to-secure-nginx-with-let-s-encrypt-on-ubuntu](https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-14-04)  
-[Install-and-configure-nginx-on-ubuntu](https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-16-04)  
-[Ghost blog platform](https://ghost.org/)
+- [How-to-secure-nginx-with-let-s-encrypt-on-ubuntu](https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-14-04)  
+- [Install-and-configure-nginx-on-ubuntu](https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-16-04)  
+- [Ghost blog platform](https://ghost.org/)
 
 
 

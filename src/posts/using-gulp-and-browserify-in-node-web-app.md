@@ -6,7 +6,7 @@ date: "2016-01-02"
 After you developing your project, and before releasing it to the public, you may want to do some optimization for your project for best performance. 
 Before I was using the requirejs to do the module loading, but since the AMD way is little bit old, and thanks to the Node's commonjs way, we start to use [browserify](http://browserify.org/)(OK, webpack is newer, but according to the project we have, we will use browserify first) to do the job.
 Here I will talk about using browserify with gulp together to build our assets quickly both in dev and prod environment.
-> **Install Modules**
+### Install Modules
 
 `npm install -g gulp`  
 and related modules to you project's `package.json`'s `devDependencies` section. 
@@ -25,7 +25,7 @@ and related modules to you project's `package.json`'s `devDependencies` section.
     "vinyl-source-stream": "^1.1.0",
 ```
   
-> Create the gulp task
+### Create the gulp task
 
 Now we can write a simple js task to bundle your js files with browserify. 
 ```
@@ -81,7 +81,7 @@ Now we have a fully featured task to bundle our js files for production:
 * use gulp-rev to revision the bundled js for best cache policy
 * use uglify to minify the js
 
-> **Watch your files**
+### Watch your files
 
 For dev env, you can also watch your js files to rebundle automatically.
 Install `watchify` module, 
@@ -105,7 +105,7 @@ gulp.task('watch', function(){
 ```
 Now you can focus on your project without worrying about running the task manually, so cool :).
 
-> **Other Tips**
+### Other Tips
 
 * When working with jquery and bootstrap in browserify, don't forget to write:  
 `window.$ = window.jQuery = require('jquery')`,  
@@ -116,7 +116,7 @@ otherwise your bootstrap.js will throw error with no jQuery found
 instead we just want `require('angular')`, 
 config that in your `package.json`'s `browser` property, see also [this](https://github.com/thlorenz/browserify-shim#a-config-inside-packagejson-without-aliases)
 
-> **Conclusion**
+### Conclusion
 
 Here we learned how to use gulp and browserify to simply bundle your js files.See you next time:)
 

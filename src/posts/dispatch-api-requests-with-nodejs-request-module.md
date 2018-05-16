@@ -12,7 +12,7 @@ First of all, we need to install the `request` module:
 
 *We assume you are using `express` as your MVC framework*
 
-> Pipe the original request  
+### Pipe the original request  
 
 The most common case is that we only need to dispatch the original request from browser to the destination without any modification with the original request, which could be easily solved with the `pipe` method.  
 ```
@@ -42,7 +42,7 @@ request(options, function(err, httpResponse, body){
 ```
 __*TIP:*__ You can wrap this into a Promise to make it look better, the `bluebird` can `promisifyAll` the `request` module to make its methods all promisify.
 
-> Modify the request body before sending
+### Modify the request body before sending
 
 Another case is that we need to modify the request data, or add other data or headers before sending to the destination, in this case, we may not use the `pipe` anymore, because we need to parse the body first to read the data, and modify the data, which will change the original request object, the solution is that we may need to create the request options and final data manually.
 

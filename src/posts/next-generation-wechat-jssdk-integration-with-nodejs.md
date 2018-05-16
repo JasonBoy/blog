@@ -224,14 +224,14 @@ const wx = new Wechat({
 ```
 The built-in stores we have for now are `FileStore` and `MongoStore`, to see more details and how to use custom store or create your own store, go to [Store in details](https://github.com/JasonBoy/wechat-jssdk/wiki/Store)
 
-> Conclusion
+### Conclusion
 
 This is the basic usage of [wechat-jssdk](https://github.com/JasonBoy/wechat-jssdk) to help you get into the wechat h5 development quickly without messing up with the token, signature generation related stuff, but also with flexibility to use custom oauth urls, custom Stores, etc...  
 Hope this makes your wechat development life easier :P
 
-> References
+### References
 
-[wechat-jssdk Project WIKI](https://github.com/JasonBoy/wechat-jssdk/wiki)  
-[Official Wechat JSSDK WIKI(Chinese)](https://mp.weixin.qq.com/wiki/11/74ad127cc054f6b80759c40f77ec03db.html)  
-[Use wechat test account](http://mp.weixin.qq.com/debug/cgi-bin/sandboxinfo?action=showinfo&t=sandbox/index)  
-[Wechat web development tool](https://mp.weixin.qq.com/wiki/10/e5f772f4521da17fa0d7304f68b97d7e.html)
+- [wechat-jssdk Project WIKI](https://github.com/JasonBoy/wechat-jssdk/wiki)  
+- [Official Wechat JSSDK WIKI(Chinese)](https://mp.weixin.qq.com/wiki/11/74ad127cc054f6b80759c40f77ec03db.html)  
+- [Use wechat test account](http://mp.weixin.qq.com/debug/cgi-bin/sandboxinfo?action=showinfo&t=sandbox/index)  
+- [Wechat web development tool](https://mp.weixin.qq.com/wiki/10/e5f772f4521da17fa0d7304f68b97d7e.html)

@@ -1,11 +1,14 @@
 import React from 'react';
+import { Article } from 'glamorous';
 
 export default ({ data }) => {
   const post = data.markdownRemark;
   return (
     <div>
       <h1>{post.frontmatter.title}</h1>
-      <div dangerouslySetInnerHTML={{ __html: post.html }} />
+      <Article lineHeight={'1.8rem'} fontSize={'1.25rem'}>
+        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+      </Article>
     </div>
   );
 };
