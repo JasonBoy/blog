@@ -94,17 +94,15 @@ const config = {
 }
 ```
 So how do we access this in a programming level(like in your components), simple, just import that in your js:
-```javascript
+```jsx
 //full path: "./src/modules/env.js"
 import env from 'modules/env';
 
 // -> "/app1/public/" , with extra static assets prefix
 console.log(env.prefix); 
 // -> "/app1/"
-console.log(env.appPrefix); 
-```
-```html
-<!--concat your static url if it does not need a webpack loader-->
+console.log(env.appPrefix);
+// and in img tag, concat your static url if it does not need a webpack loader-->
 <img src={`${env.prefix}static/imgs/no-loader.png`}>
 ```
 The webpack loader will also be prefix aware, so in your source code, just import your assets normally, or use relative bg path in your scss files.

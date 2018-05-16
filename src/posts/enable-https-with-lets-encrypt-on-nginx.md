@@ -39,7 +39,7 @@ sudo apt-get install nginx
 ```
 
 And create a new site config file in `/etc/nginx/sites-available` to enable `/.well-known` access, we call it `ghost` since it's for ghost node app config: 
-```
+```nginx
 server {
         listen 80;
         server_name www.yourdomain.com;
@@ -85,7 +85,7 @@ There are couple pem files generated inside `/etc/letsencrypt/live/www.yourdomai
 ### Config TLS/SSL on nginx
 
 After you got the SSL certificate, you can finally configure that to nginx, the full configuration in `ghost` config file will be: 
-```
+```nginx
 server {
         listen 80;
         listen 443 ssl;
