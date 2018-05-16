@@ -1,6 +1,8 @@
 ---
-title: A Deep Dive Guide for Crawling SPA with Puppeteer and Troubleshooting
+title: "A Deep Dive Guide for Crawling SPA with Puppeteer and Troubleshooting"
 date: "2017-10-18"
+description: "Using headless chrome node api puppeteer to crawl SPA websites, and troubleshooting for linux system deployment"
+tags: ["node", "crawler", "spider", "puppeteer", "headless-chrome"]
 ---
 
 Websites have beening evolving from static sites to modern SPA applications, and with those changes, the tasks of SEO and web crawling have became a little bit tricky since you cannot get all the information from the initial html document. Here I will share some guides on how to crawl a SPA-like website with [puppeteer](https://github.com/GoogleChrome/puppeteer).

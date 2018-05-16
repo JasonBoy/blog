@@ -1,6 +1,8 @@
 ---
 title: Using nvm to manage node versions
 date: "2016-04-27"
+description: "Usually we only have one machine, but we want to use different node to support different apps, we can use nvm to solve this problem"
+tags: ["node", "nvm", "n", "version-manager"]
 ---
 
 Usually we only have one machine, but we want to use different node to support different apps, like if we want to run **Ghost**, the recommended node version is __0.10.x__, but this version is really old, our new project may use 4.x or higher, but how do we have the best of the both world?

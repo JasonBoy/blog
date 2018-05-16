@@ -1,6 +1,8 @@
 ---
 title: Using Gulp and Browserify in Node Web App
 date: "2016-01-02"
+description: "Here I will talk about using browserify with gulp together to build our assets quickly both in dev and prod environment"
+tags: ["node", "gulp", "browserify"]
 ---
 
 After you developing your project, and before releasing it to the public, you may want to do some optimization for your project for best performance. 

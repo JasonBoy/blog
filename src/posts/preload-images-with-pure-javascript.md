@@ -1,6 +1,8 @@
 ---
 title: Preload Images with Pure Javascript
 date: "2017-05-17"
+description: "I will talk about using pure javascript to preload all your images no matter where you use the image(js, html, css) before your main content is displayed"
+tags: ["preload", "prefetch", "prefetch-image", "h5", "image"]
 ---
 
 A mobile/h5 page has became a major promotion way for companies to do advertising for their users, especially to attract new potential users. Usually a promotion page contains lots of images, and other media assets, which are meant to be preloaded before the promotion contents display. Among these assets, the images are the most major contents of the whole page, while there is only one audio and video in the same page. So a major task is to preload all the images needed for the whole page, which will provide extremely better experience for your users.

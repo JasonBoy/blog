@@ -1,6 +1,8 @@
 ---
 title: Enable HTTPS with Let's Encrypt on Nginx
 date: "2017-02-28"
+description: "Enable HTTPS with Let's Encrypt on Nginx"
+tags: ["https", "nginx", "lets encrypt", "node", "security"]
 ---
 
 The Security and Integrity of modern web apps has become more and more important, a website without secure connection between the user and the server will leak user sensitive information, display inconsistent page content(e.g invasive ads), etc, which causes your website less trustable and worse UX to your users. Also from Chrome 56, if your website is not on https connection, it will display very attractive Not Secure warning to your users: 

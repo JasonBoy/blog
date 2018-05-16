@@ -1,6 +1,8 @@
 ---
 title: Dispatch API requests with nodejs request module
 date: "2016-05-13"
+description: "Dispatch API requests with nodejs request module"
+tags: ["api-proxy", "api", "node", "request", "pipe"]
 ---
 
 There are lots of cool things we can do when we use nodejs as our front-end development tool, request-proxy is one of the daily thing that we messed with, sometimes we may have the cross-origin issue when we send apis, sometimes we need to modify some data before sending requests or modify data after api response, and other freaking issues, but with the help of nodejs, we can solve all the problems above.

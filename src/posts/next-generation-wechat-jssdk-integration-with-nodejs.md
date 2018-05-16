@@ -1,6 +1,8 @@
 ---
 title: Next-Generation WeChat JSSDK integration with NodeJS
 date: "2016-12-28"
+description: "Next-Generation WeChat JSSDK integration with NodeJS"
+tags: ["node", "wechat", "jssdk", "oauth"]
 ---
 
 [Wechat](https://web.wechat.com/) has been one of the most famous instant message apps in the world, but also a major zone for business for companies and organizations especially in China. Almost every company in China has a business or public/subscribe account on Wechat platform, which makes it much more important for web developers to make the best use of wechat and it's APIs. Here I want to talk about by using the next-gen [wechat-jssdk](https://github.com/JasonBoy/wechat-jssdk) lib to leverage the [Wechat JSSDK APIs](https://mp.weixin.qq.com/wiki/11/74ad127cc054f6b80759c40f77ec03db.html) for H5 or mobile pages that are used in wechat app with the ability to invoke wechat apis and even native apis exposed by wechat app.

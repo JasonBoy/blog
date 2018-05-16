@@ -1,6 +1,8 @@
 ---
 title: Using CORS In Node Express App
 date: "2016-03-08"
+description: "using Cross-Origin resource sharing to handle cross domain ajax requests in your node express app, by adding Access-Control-Allow-Origin and other Access-Control headers"
+tags: ["node", "express", "cross-origin", "ajax", "cors"]
 ---
 
 There are lots of cases when we want to access the data from another domain using ajax, like in `a.com` we want to access the apis deployed in `api.a.com`, since the browser has the same-origin policy, we cannot send the ajax requests to `api.a.com`. 

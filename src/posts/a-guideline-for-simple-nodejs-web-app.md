@@ -1,6 +1,8 @@
 ---
 title: A guideline for simple NodeJS web app
 date: "2015-10-05"
+description: "A guide line for simple nodejs web application, from creating the empty project to gulp build tool and to pm2 deployment"
+tags: ["node", "express"]
 ---
 
 Since the Node.JS has become one of the most popular technology recently, more and more developers have beening embracing NodeJS as their primary tech stack in their projects. 

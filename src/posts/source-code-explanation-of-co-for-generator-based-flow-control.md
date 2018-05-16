@@ -1,6 +1,8 @@
 ---
 title: Source Code Explanation of Co for Generator Based Flow-Control
 date: "2016-11-08"
+description: "Source Code Explanation of Co for Generator Based Flow-Control"
+tags: ["node", "co", "generator", "promise", "ES6"]
 ---
 
 Since the release of ES6(ES2015), which introduced a new feature called [Generator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator), which is used for async control flow to prevent the callback hell. Generator allows us to do async tasks with sync coding, which makes our code more elegant and straight forward.

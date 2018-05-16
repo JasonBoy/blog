@@ -1,6 +1,8 @@
 ---
 title: 🚀A Modern, Production-Ready, and Full-Stack Node Web Framework
 date: "2017-12-19"
+description: "koa-web-kit: A Modern, Production-Ready, and Full-Stack Node Web Framework"
+tags: ["node", "koa", "full-stack", "web-framework", "react"]
 ---
 
 There are lots of starter kit or boilerplate projects out there, most of which are focusing just on front-end development, like the simple yet powerful [create-react-app](https://github.com/facebookincubator/create-react-app), but as a full stack developer like myself, a static site focused boilerplate is not enough for building complex web applications both for front-end and back-end. So here I will introduce yet another Node.JS full stack framework [koa-web-kit](https://github.com/JasonBoy/koa-web-kit), which may not suit for everyone, but at least you have one more choice at your disposal, right?🤣 which is also great.

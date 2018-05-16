@@ -1,5 +1,6 @@
 import React from 'react';
 import glamorous from 'glamorous';
+import Helmet from 'react-helmet';
 
 const Article = glamorous.article({
   '& :not(pre) > code[class*="language-"]': {
@@ -10,8 +11,16 @@ const Article = glamorous.article({
 
 export default ({ data }) => {
   const post = data.markdownRemark;
+  const frontMatter = post.frontmatter;
   return (
     <div>
+      <Helmet
+        title={frontMatter.title}
+        meta={[
+          { name: 'description', content: frontMatter.description },
+          { name: 'keywords', content: frontMatter.tags.join(',') },
+        ]}
+      />
       <h1>{post.frontmatter.title}</h1>
       <Article lineHeight={'1.8rem'} fontSize={'1.25rem'}>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
@@ -26,6 +35,8 @@ export const query = graphql`
       html
       frontmatter {
         title
+        description
+        tags
       }
     }
   }

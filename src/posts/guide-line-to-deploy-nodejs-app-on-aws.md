@@ -1,6 +1,8 @@
 ---
 title: Guide line to deploy NodeJS app on AWS
 date: "2016-07-24"
+description: "Guide line to deploy NodeJS app on AWS"
+tags: ["aws", "node", "ec2", "nodejs-depolyment", "amazon-web-services"]
 ---
 
 After your development with your application, you need to deploy it to a server so that people can use it all around the world. By doing that, we need to choose a proper server provider, on which your app should be running.

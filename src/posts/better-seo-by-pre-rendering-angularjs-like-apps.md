@@ -1,6 +1,8 @@
 ---
 title: Better SEO by Pre-Rendering AngularJS-like Apps
 date: "2016-07-25"
+description: "Better SEO by Pre-Rendering AngularJS-like Apps"
+tags: ["seo", "node", "prerender", "angular", "pre-rendering", "spa-seo"]
 ---
 
 Nowadays people are always talking about the [MVVM](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel)/MVC patterns in front-end development, frameworks with these patterns include [AngularJS](https://angularjs.org/), [BackboneJS](http://backbonejs.org/), [KnockoutJS](http://knockoutjs.com/), [VueJS](https://vuejs.org/), etc..., which really make our coding life much easier, and even when we are dealing with large SPA projects, we have everything controlled in handy. But one common issue with these applications is that most of the data are rendered on client-side, which requires javascript to be executed, which then makes it harder for search engines to crawl and index your website cause usually the search engine won't execute your js code. 
