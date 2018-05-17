@@ -1,6 +1,6 @@
 const config = {
   siteMetadata: {
-    title: 'May the Code be With You',
+    title: 'May the Code Be with You',
   },
   plugins: [
     {
