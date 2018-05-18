@@ -194,7 +194,7 @@ module.exports = {
   target: 'node',
   output: {
     path: 'build/node',
-    filename: 'src/AppSSR.js',
+    filename: 'ssr.js',
     libraryExport: 'default',
     libraryTarget: 'commonjs2',
   },
