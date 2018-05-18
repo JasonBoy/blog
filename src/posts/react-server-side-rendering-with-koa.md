@@ -271,7 +271,7 @@ export default () => {
 
 ### Initial state on Server Side
 
-Up until now, we have a simple React App with benefits of both SPA and SSR, but we have one more thing to do, since most of the time, we have the data or state from some remote api, before we can render the react component, we need to get some init data from other api, then we provide the data into the component to render on SSR, also we need to grad that on the client side to prevent re-fetching the api.
+Up until now, we have a simple React App with benefits of both SPA and SSR, but we have one more thing to do, since most of the time, we have the data or state from some remote api, before we can render the react component, we need to get some init data from other api, then we provide the data into the component to render on SSR, also we need to grab that on the client side to prevent re-fetching the api.
 
 Still in your server `app.js`:
 ```javascript
