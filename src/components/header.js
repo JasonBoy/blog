@@ -53,7 +53,7 @@ const Header = ({ siteTitle }) => (
           className={css({
             color: palette.textPrimary,
           })}
-          href="https://github.com/JasonBoy"
+          href="https://github.com/JasonBoy/blog"
           target="_blank"
         >
           <FontAwesomeIcon icon={faGithub} />
