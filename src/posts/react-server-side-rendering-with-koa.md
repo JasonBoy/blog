@@ -339,7 +339,7 @@ export default class Hello extends React.Component {
   }
 }
 ```
-Now that if it's rendered by server side, just grad all the stuff, html and data, otherwise fetch on the client side just like a normal SPA.
+Now that if it's rendered by server side, just grab all the stuff, html and data, otherwise fetch on the client side just like a normal SPA.
 
 ### 🎉React-v16 updates
 
