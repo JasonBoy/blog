@@ -70,7 +70,7 @@ if (process.env.NODE_ENV === 'production') {
     {
       resolve: `gatsby-plugin-gosquared`,
       options: {
-        token: 'GSN-123456-A',
+        token: 'GSN-210157-Y',
       },
     },
   ]);
