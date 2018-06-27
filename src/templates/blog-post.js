@@ -9,11 +9,15 @@ const Article = glamorous.article({
   },
 });
 
+const ArticleWrapper = glamorous.div({
+  minHeight: 475,
+});
+
 export default ({ data }) => {
   const post = data.markdownRemark;
   const frontMatter = post.frontmatter;
   return (
-    <div>
+    <ArticleWrapper>
       <Helmet
         title={frontMatter.title}
         meta={[
@@ -25,7 +29,7 @@ export default ({ data }) => {
       <Article lineHeight={'1.8rem'} fontSize={'1.25rem'}>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
       </Article>
-    </div>
+    </ArticleWrapper>
   );
 };
 
