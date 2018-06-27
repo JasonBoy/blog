@@ -1,5 +1,5 @@
 ---
-title: React Server Side Rendering with Koa
+title: React Server Side Rendering with Koa(CN)
 date: "2018-05-21"
 description: "use React Server Side Rendering with Koa App"
 tags: ["node", "react", "koa", "ssr"]
