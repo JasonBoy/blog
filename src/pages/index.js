@@ -1,25 +1,28 @@
 import React from 'react';
-import Link from 'gatsby-link';
+import { Link, graphql } from 'gatsby';
 import g from 'glamorous';
+import Layout from '../components/Layout';
 
 const IndexPage = ({ data }) => (
-  <div>
-    <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
-    {data.allMarkdownRemark.edges.map(({ node }) => (
-      <div key={node.id}>
-        <Link
-          to={node.fields.slug}
-          css={{ textDecoration: `none`, color: `inherit` }}
-        >
-          <g.H3 marginBottom="1rem">
-            {node.frontmatter.title}{' '}
-            <g.Span color="#BBB">— {node.frontmatter.date}</g.Span>
-          </g.H3>
-          <p>{node.excerpt}</p>
-        </Link>
-      </div>
-    ))}
-  </div>
+  <Layout data={data}>
+    <div>
+      <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
+      {data.allMarkdownRemark.edges.map(({ node }) => (
+        <div key={node.id}>
+          <Link
+            to={node.fields.slug}
+            css={{ textDecoration: `none`, color: `inherit` }}
+          >
+            <g.H3 marginBottom="1rem">
+              {node.frontmatter.title}{' '}
+              <g.Span color="#BBB">— {node.frontmatter.date}</g.Span>
+            </g.H3>
+            <p>{node.excerpt}</p>
+          </Link>
+        </div>
+      ))}
+    </div>
+  </Layout>
 );
 
 export default IndexPage;
