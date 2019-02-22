@@ -22,6 +22,7 @@ const config = {
       },
     },
     `gatsby-plugin-glamor`,
+    `gatsby-plugin-emotion`,
     {
       resolve: `gatsby-plugin-typography`,
       options: {
