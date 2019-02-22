@@ -28,6 +28,8 @@
   },
   "keywords": ["gatsby", "blog"],
   "license": "MIT",
+  "homepage": "https://github.com/JasonBoy/blog#readme",
+  "readme": "README.md",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
