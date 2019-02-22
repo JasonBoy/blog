@@ -1,7 +1,5 @@
 # May the Code be With You
 
-> WIP...
-
 ## Development
 
 ```bash

@@ -1,5 +1,4 @@
 import React from 'react';
-import Link from 'gatsby-link';
 import g from 'glamorous';
 import { css } from 'glamor';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -82,7 +81,13 @@ const Footer = ({ siteTitle }) => (
             className={alignMiddleStyle}
             href="https://github.com/JasonBoy"
           >
-            <g.Span marginRight={4}>With 💖 By</g.Span>
+            <g.Span marginRight={4}>
+              With{' '}
+              <span role="img" aria-label="love">
+                💖
+              </span>{' '}
+              By
+            </g.Span>
             <FontAwesomeIcon icon={faGithub} size="lg" />
           </g.A>
         </LI>

@@ -1,11 +1,11 @@
 import React from 'react';
-import Link from 'gatsby-link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import palette from '../utils/palette';
 import { css } from 'glamor';
 import g from 'glamorous';
 import logo from '../assets/logo.jpg';
+import { Link } from 'gatsby';
 
 const h1Style = css({
   margin: 0,
@@ -55,6 +55,7 @@ const Header = ({ siteTitle }) => (
           })}
           href="https://github.com/JasonBoy/blog"
           target="_blank"
+          rel="noopener noreferrer"
         >
           <FontAwesomeIcon icon={faGithub} />
         </a>
