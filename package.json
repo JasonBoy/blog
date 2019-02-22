@@ -4,30 +4,46 @@
   "version": "1.0.0",
   "author": "Jason Jiang <jasonlikenfs@gmail.com>",
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.0-14",
-    "@fortawesome/free-brands-svg-icons": "^5.1.0-8",
-    "@fortawesome/free-solid-svg-icons": "^5.1.0-11",
-    "@fortawesome/react-fontawesome": "^0.1.0-11",
+    "@emotion/core": "^10.0.7",
+    "@emotion/styled": "^10.0.7",
+    "@fortawesome/fontawesome-svg-core": "^1.2.15",
+    "@fortawesome/free-brands-svg-icons": "^5.7.2",
+    "@fortawesome/free-solid-svg-icons": "^5.7.2",
+    "@fortawesome/react-fontawesome": "^0.1.4",
     "fr": "^1.2.2",
-    "gatsby": "^1.9.247",
-    "gatsby-link": "^1.6.40",
-    "gatsby-plugin-favicon": "^2.1.1",
-    "gatsby-plugin-glamor": "^1.6.13",
-    "gatsby-plugin-google-analytics": "^1.0.31",
+    "gatsby": "^2.1.14",
+    "gatsby-link": "^2.0.11",
+    "gatsby-plugin-emotion": "^4.0.4",
+    "gatsby-plugin-favicon": "^3.1.5",
+    "gatsby-plugin-glamor": "^2.0.8",
+    "gatsby-plugin-google-analytics": "^2.0.14",
     "gatsby-plugin-gosquared": "^1.0.1",
-    "gatsby-plugin-nprogress": "^1.0.14",
-    "gatsby-plugin-react-helmet": "^2.0.10",
-    "gatsby-plugin-typography": "^1.7.18",
+    "gatsby-plugin-nprogress": "^2.0.8",
+    "gatsby-plugin-react-helmet": "^3.0.6",
+    "gatsby-plugin-typography": "^2.2.7",
     "gatsby-remark-copy-images": "^0.2.1",
-    "gatsby-remark-prismjs": "^2.0.2",
-    "gatsby-source-filesystem": "^1.5.35",
-    "gatsby-transformer-remark": "^1.7.41",
-    "glamorous": "^4.13.0",
-    "prismjs": "^1.14.0",
-    "react-helmet": "^5.2.0"
+    "gatsby-remark-prismjs": "^3.2.4",
+    "gatsby-source-filesystem": "^2.0.21",
+    "gatsby-transformer-remark": "^2.2.5",
+    "glamor": "^2.20.40",
+    "glamorous": "^5.0.0",
+    "prismjs": "^1.15.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.3",
+    "react-dom": "^16.8.3",
+    "react-helmet": "^5.2.0",
+    "react-typography": "^0.16.18",
+    "typography": "^0.16.18"
   },
-  "keywords": ["gatsby", "blog"],
+  "keywords": [
+    "gatsby",
+    "blog"
+  ],
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JasonBoy/blog.git"
+  },
   "homepage": "https://github.com/JasonBoy/blog#readme",
   "readme": "README.md",
   "scripts": {
@@ -39,11 +55,16 @@
     "precommit": "lint-staged"
   },
   "lint-staged": {
-    "**/*.{js,jsx,json,scss,css}": ["prettier --write", "git add"]
+    "linters": {
+      "**/*.{js,jsx,json,scss,css}": [
+        "prettier --write",
+        "git add"
+      ]
+    }
   },
   "devDependencies": {
-    "husky": "^0.14.3",
-    "lint-staged": "^7.1.0",
-    "prettier": "1.12.1"
+    "husky": "^1.3.1",
+    "lint-staged": "^8.1.4",
+    "prettier": "^1.16.4"
   }
 }
