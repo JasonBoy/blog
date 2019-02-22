@@ -1,17 +1,17 @@
 import React from 'react';
-import glamorous from 'glamorous';
+import g from 'glamorous';
 import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 
-const Article = glamorous.article({
+const Article = g.article({
   '& :not(pre) > code[class*="language-"]': {
     paddingLeft: 7,
     paddingRight: 7,
   },
 });
 
-const ArticleWrapper = glamorous.div({
+const ArticleWrapper = g.div({
   minHeight: 475,
 });
 
@@ -28,7 +28,12 @@ export default function BlogPost({ data }) {
             { name: 'keywords', content: frontMatter.tags.join(',') },
           ]}
         />
-        <h1>{post.frontmatter.title}</h1>
+        <g.H1 marginBottom={0}>{post.frontmatter.title}</g.H1>
+        <g.P marginBottom={10} color="gray">
+          <small>
+            <i>{post.frontmatter.date}</i>
+          </small>
+        </g.P>
         <Article lineHeight={'1.8rem'} fontSize={'1.25rem'}>
           <div dangerouslySetInnerHTML={{ __html: post.html }} />
         </Article>
@@ -45,6 +50,7 @@ export const query = graphql`
         title
         description
         tags
+        date(formatString: "DD MMMM, YYYY")
       }
     }
   }

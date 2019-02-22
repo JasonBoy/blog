@@ -13,7 +13,7 @@ const linkCSS = {
 
 const IndexPage = ({ data }) => (
   <Layout data={data}>
-    <ul className={css({ listStyle: 'none' })}>
+    <ul className={css({ listStyle: 'none', margin: 0 })}>
       {/*<h4>{data.allMarkdownRemark.totalCount} Posts</h4>*/}
       {data.allMarkdownRemark.edges.map(({ node }) => (
         <li key={node.id} className={css({ marginBottom: 20 })}>
