@@ -1,6 +1,6 @@
 ---
 title: React Server Side Rendering with Koa Part II
-date: "2019-02-22"
+date: "2019-02-25"
 description: "use React Server Side Rendering with Koa App with loadable-component"
 tags: ["node", "react", "koa", "ssr"]
 ---
