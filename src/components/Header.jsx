@@ -14,6 +14,15 @@ const h1Style = css({
   alignItems: 'center',
 });
 
+const linkStyle = css({
+  color: palette.textPrimary,
+  textDecoration: 'none',
+});
+const alignMiddleStyle = css({
+  verticalAlign: 'middle',
+  display: 'inline-block',
+});
+
 const Header = ({ siteTitle }) => (
   <div
     style={{
@@ -22,18 +31,17 @@ const Header = ({ siteTitle }) => (
     }}
   >
     <div
+      className={h1Style}
       style={{
         margin: '0 auto',
         maxWidth: 960,
-        padding: '1.45rem 1.0875rem',
+        padding: '1rem 0',
       }}
     >
-      <h1 className={h1Style}>
-        <Link
-          to="/"
+      <Link to="/" className={linkStyle}>
+        <h1
           className={css({
-            color: palette.textPrimary,
-            textDecoration: 'none',
+            marginBottom: 0,
             '& > img, & > span': {
               display: 'inline-block',
               verticalAlign: 'middle',
@@ -48,18 +56,25 @@ const Header = ({ siteTitle }) => (
             marginRight={5}
           />
           <g.Span>{siteTitle}</g.Span>
+        </h1>
+      </Link>
+      <div>
+        <Link className={`${linkStyle} ${alignMiddleStyle}`} to="/about-me">
+          About
         </Link>
         <a
-          className={css({
+          className={`${css({
             color: palette.textPrimary,
-          })}
+            marginLeft: 10,
+            fontSize: 30,
+          })} ${alignMiddleStyle}`}
           href="https://github.com/JasonBoy/blog"
           target="_blank"
           rel="noopener noreferrer"
         >
           <FontAwesomeIcon icon={faGithub} />
         </a>
-      </h1>
+      </div>
     </div>
   </div>
 );

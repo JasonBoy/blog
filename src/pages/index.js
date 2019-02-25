@@ -1,27 +1,35 @@
 import React from 'react';
 import { Link, graphql } from 'gatsby';
 import g from 'glamorous';
+import { css } from 'glamor';
 import Layout from '../components/Layout';
+
+const linkCSS = {
+  textDecoration: `none`,
+  color: `inherit`,
+  transition: '.3s',
+  '&:hover': { textDecoration: 'underline' },
+};
 
 const IndexPage = ({ data }) => (
   <Layout data={data}>
-    <div>
-      <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
+    <ul className={css({ listStyle: 'none', margin: 0 })}>
+      {/*<h4>{data.allMarkdownRemark.totalCount} Posts</h4>*/}
       {data.allMarkdownRemark.edges.map(({ node }) => (
-        <div key={node.id}>
-          <Link
-            to={node.fields.slug}
-            css={{ textDecoration: `none`, color: `inherit` }}
-          >
+        <li key={node.id} className={css({ marginBottom: 20 })}>
+          <Link to={node.fields.slug} css={linkCSS}>
             <g.H3 marginBottom="1rem">
-              {node.frontmatter.title}{' '}
-              <g.Span color="#BBB">— {node.frontmatter.date}</g.Span>
+              {node.frontmatter.title}
+              {/*<g.Span color="#BBB">— {node.frontmatter.date}</g.Span>*/}
             </g.H3>
-            <p>{node.excerpt}</p>
           </Link>
-        </div>
+          <g.P marginBottom={0} color="gray">
+            <small>{node.frontmatter.date}</small>
+          </g.P>
+          <p>{node.excerpt}</p>
+        </li>
       ))}
-    </div>
+    </ul>
   </Layout>
 );
 
@@ -30,7 +38,10 @@ export default IndexPage;
 export const query = graphql`
   query IndexQuery {
     allMarkdownRemark(
-      filter: { fields: { slug: { regex: "/^(?!/posts-zh_cn)/" } } }
+      filter: {
+        fields: { slug: { regex: "/^(?!/posts-zh_cn)/" } }
+        frontmatter: { tags: { nin: ["not-blog"] } }
+      }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
       totalCount
@@ -39,6 +50,7 @@ export const query = graphql`
           id
           frontmatter {
             title
+            tags
             date(formatString: "DD MMMM, YYYY")
           }
           fields {

@@ -2,7 +2,7 @@
 title: About Me
 date: "2015-10-05"
 description: "Jason Jiang, Front-End and Node.JS developer"
-tags: ["about"]
+tags: ["about", "not-blog"]
 ---
 
 ###Jason Jiang
