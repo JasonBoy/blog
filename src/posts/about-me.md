@@ -10,3 +10,7 @@ Front-End and Node.JS developer
 
 - [jasonlikenfs@gmail.com](mailto:jasonlikenfs@gmail.com)
 - [GITHUB](https://github.com/JasonBoy)
+
+友情链接
+
+- [卡拉搜索](https://kalasearch.cn)
