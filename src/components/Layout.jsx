@@ -19,7 +19,7 @@ const Layout = ({ children }) => (
         }
       }
     `}
-    render={data => (
+    render={(data) => (
       <>
         <Helmet
           title={data.site.siteMetadata.title}
