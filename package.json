@@ -3,36 +3,39 @@
   "description": "Jason's Blog",
   "version": "1.0.0",
   "author": "Jason Jiang <jasonlikenfs@gmail.com>",
+  "engines": {
+    "node": ">= 10.13"
+  },
   "dependencies": {
-    "@emotion/core": "^10.0.7",
-    "@emotion/styled": "^10.0.7",
-    "@fortawesome/fontawesome-svg-core": "^1.2.15",
-    "@fortawesome/free-brands-svg-icons": "^5.7.2",
-    "@fortawesome/free-solid-svg-icons": "^5.7.2",
-    "@fortawesome/react-fontawesome": "^0.1.4",
+    "@emotion/core": "^10.0.28",
+    "@emotion/styled": "^10.0.27",
+    "@fortawesome/fontawesome-svg-core": "^1.2.30",
+    "@fortawesome/free-brands-svg-icons": "^5.14.0",
+    "@fortawesome/free-solid-svg-icons": "^5.14.0",
+    "@fortawesome/react-fontawesome": "^0.1.11",
     "fr": "^1.2.2",
-    "gatsby": "^2.1.14",
-    "gatsby-plugin-emotion": "^4.0.4",
+    "gatsby": "^2.24.4",
+    "gatsby-plugin-emotion": "^4.3.10",
     "gatsby-plugin-favicon": "^3.1.5",
-    "gatsby-plugin-glamor": "^2.0.8",
-    "gatsby-plugin-google-analytics": "^2.0.14",
+    "gatsby-plugin-glamor": "^2.3.10",
+    "gatsby-plugin-google-analytics": "^2.3.11",
     "gatsby-plugin-gosquared": "^1.0.1",
-    "gatsby-plugin-nprogress": "^2.0.8",
-    "gatsby-plugin-react-helmet": "^3.0.6",
-    "gatsby-plugin-typography": "^2.2.7",
+    "gatsby-plugin-nprogress": "^2.3.10",
+    "gatsby-plugin-react-helmet": "^3.3.10",
+    "gatsby-plugin-typography": "^2.5.10",
     "gatsby-remark-copy-images": "^0.2.1",
-    "gatsby-remark-prismjs": "^3.2.4",
-    "gatsby-source-filesystem": "^2.0.21",
-    "gatsby-transformer-remark": "^2.2.5",
+    "gatsby-remark-prismjs": "^3.5.10",
+    "gatsby-source-filesystem": "^2.3.20",
+    "gatsby-transformer-remark": "^2.8.25",
     "glamor": "^2.20.40",
     "glamorous": "^5.0.0",
-    "prismjs": "^1.15.0",
+    "prismjs": "^1.20.0",
     "prop-types": "^15.7.2",
-    "react": "^16.8.3",
-    "react-dom": "^16.8.3",
-    "react-helmet": "^5.2.0",
-    "react-typography": "^0.16.18",
-    "typography": "^0.16.18"
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-helmet": "^6.1.0",
+    "react-typography": "^0.16.19",
+    "typography": "^0.16.19"
   },
   "keywords": [
     "gatsby",
@@ -58,16 +61,14 @@
     }
   },
   "lint-staged": {
-    "linters": {
-      "**/*.{js,jsx,json,scss,css}": [
-        "prettier --write",
-        "git add"
-      ]
-    }
+    "**/*.{js,jsx,json,scss,css}": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "devDependencies": {
-    "husky": "^1.3.1",
-    "lint-staged": "^8.1.4",
-    "prettier": "^1.16.4"
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
+    "prettier": "^2.x"
   }
 }

@@ -68,12 +68,6 @@ if (process.env.NODE_ENV === 'production') {
         // exclude: ["/preview/**", "/do-not-track/me/too/"],
       },
     },
-    {
-      resolve: `gatsby-plugin-gosquared`,
-      options: {
-        token: 'GSN-210157-Y',
-      },
-    },
   ]);
 }
 
