@@ -5,11 +5,12 @@ description: "Jason Jiang, Front-End and Node.JS developer"
 tags: ["about", "not-blog"]
 ---
 
-###Jason Jiang
-Front-End and Node.JS developer
+### Jason Jiang
+Front-End and NodeJS developer
 
 - [jasonlikenfs@gmail.com](mailto:jasonlikenfs@gmail.com)
-- [GITHUB](https://github.com/JasonBoy)
+- [Github](https://github.com/JasonBoy)
+- [掘金主页](https://juejin.cn/user/3315782798017597/posts)
 
 友情链接
 
