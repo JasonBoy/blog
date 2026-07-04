@@ -16,24 +16,6 @@ function formatTags(tagsStr) {
   return tagsArray.map((tag) => tag.trim()).filter(Boolean);
 }
 
-function formatDate(dateStr) {
-  if (!dateStr) return new Date().toISOString().split('T')[0];
-  // Remove quotes
-  dateStr = dateStr.replace(/['"]/g, '');
-  // Parse the date in YYYY-MM-DD format
-  const parts = dateStr.split('-');
-  if (parts.length === 3) {
-    return dateStr; // Already in YYYY-MM-DD format
-  }
-  // Try to parse the date
-  const date = new Date(dateStr);
-  if (isNaN(date.getTime())) {
-    console.log(`Warning: Could not parse date: ${dateStr}`);
-    return new Date().toISOString().split('T')[0];
-  }
-  return date.toISOString().split('T')[0];
-}
-
 async function updateFrontmatter() {
   for (const dir of BLOG_DIRS) {
     try {

@@ -2,7 +2,14 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import FormattedDate from '../components/FormattedDate.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { getCollection } from 'astro:content';
+
+const recentPosts = (await getCollection('blog'))
+  .filter((post) => !post.id.startsWith('zh/'))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 2);
 ---
 
 <!doctype html>
@@ -13,6 +20,25 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
   <body>
     <Header />
     <main>
+      <aside class="posts-notice" aria-label="Latest blog posts">
+        <span class="posts-notice-label">Latest</span>
+        <ul class="posts-notice-list">
+          {
+            recentPosts.map((post) => (
+              <li>
+                <a href={`/blog/${post.id}/`}>
+                  <span class="post-title">{post.data.title}</span>
+                  <span class="post-date">
+                    <FormattedDate date={post.data.pubDate} />
+                  </span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+        <a class="posts-notice-more" href="/blog">All posts →</a>
+      </aside>
+
       <h1>👋 Hi, I'm Jason</h1>
       <p class="intro">
         I'm a passionate Frontend and Full Stack Developer with extensive
@@ -65,6 +91,73 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
       </p>
 
       <style>
+        .posts-notice {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          margin-bottom: 1.75rem;
+          padding: 0.65rem 1rem;
+          background: var(--theme-bg);
+          border: 1px solid var(--theme-bg-accent);
+          border-left: 3px solid var(--theme-accent);
+          border-radius: 8px;
+          font-size: 0.9rem;
+          line-height: 1.4;
+        }
+        .posts-notice-label {
+          flex-shrink: 0;
+          padding: 0.15rem 0.5rem;
+          border-radius: 4px;
+          background: color-mix(in srgb, var(--theme-accent) 15%, transparent);
+          color: var(--theme-accent);
+          font-size: 0.75rem;
+          font-weight: 700;
+          letter-spacing: 0.04em;
+          text-transform: uppercase;
+        }
+        .posts-notice-list {
+          flex: 1;
+          min-width: 0;
+          list-style: none;
+          margin: 0;
+          padding: 0;
+        }
+        .posts-notice-list li + li {
+          margin-top: 0.35rem;
+        }
+        .posts-notice-list a {
+          display: flex;
+          align-items: baseline;
+          justify-content: space-between;
+          gap: 1rem;
+          text-decoration: none;
+          color: inherit;
+        }
+        .posts-notice-list a:hover .post-title {
+          color: var(--theme-accent);
+        }
+        .post-title {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          color: var(--theme-text);
+          transition: color 0.2s ease;
+        }
+        .post-date {
+          flex-shrink: 0;
+          font-size: 0.8rem;
+          color: var(--theme-text-light);
+        }
+        .posts-notice-more {
+          flex-shrink: 0;
+          font-size: 0.85rem;
+          color: var(--theme-accent);
+          text-decoration: none;
+          white-space: nowrap;
+        }
+        .posts-notice-more:hover {
+          text-decoration: underline;
+        }
         h1 {
           margin-bottom: 2rem;
         }
@@ -83,6 +176,29 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
         li {
           margin-bottom: 0.5rem;
           line-height: 1.5;
+        }
+        @media (max-width: 640px) {
+          .posts-notice {
+            flex-wrap: wrap;
+            align-items: flex-start;
+            gap: 0.65rem;
+          }
+          .posts-notice-list {
+            flex-basis: 100%;
+            order: 2;
+          }
+          .posts-notice-more {
+            margin-left: auto;
+            order: 1;
+          }
+          .posts-notice-list a {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.15rem;
+          }
+          .post-title {
+            white-space: normal;
+          }
         }
       </style>
     </main>
