@@ -7,7 +7,9 @@ import FormattedDate from '../components/FormattedDate.astro';
 
 type Props = CollectionEntry<'blog'>['data'];
 
-const { title, description, pubDate, updatedDate } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+
+const showHeroImage = heroImage && !heroImage.includes('blog-placeholder');
 ---
 
 <html lang="en">
@@ -21,9 +23,11 @@ const { title, description, pubDate, updatedDate } = Astro.props;
       }
       .hero-image {
         width: 100%;
+        margin-bottom: 2em;
       }
       .hero-image img {
         display: block;
+        width: 100%;
         margin: 0 auto;
         border-radius: 12px;
         box-shadow: 0 0 0 1px var(--theme-accent);
@@ -103,6 +107,13 @@ const { title, description, pubDate, updatedDate } = Astro.props;
             <h1>{title}</h1>
             <hr />
           </div>
+          {
+            showHeroImage && (
+              <div class="hero-image">
+                <img width={720} height={360} src={heroImage} alt="" />
+              </div>
+            )
+          }
           <slot />
         </div>
       </article>
